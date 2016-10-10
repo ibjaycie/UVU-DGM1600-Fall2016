@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by anonymous (http://jsbin.com/lalebiludi/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+//Game over Confirm
+function decline (userInput) {
+  alert("That's okay, maybe we'll see you later.");
+}
+
+
+//Initial Character Creation
+
+var playerName = prompt("Name your Character.");
+
+var playerGender = prompt("Is " + playerName + " male or female?").toLowerCase();
+
+if (playerGender === "male") {
+  playerGender = ["lad","boy"];
+  gameStart(); //Starting game
+} else if (playerGender === "female") {
+  playerGender = ["lass"];
+  gameStart(); //Starting game
+} else {
+  deadEnd();
+}
+
+//--------- Game begins here ----------
+
+function gameStart() {
+  var begin = confirm("Alright " + playerName + ", are you prepared to begin your journey, even if you might not make it out alive?");
+  if (begin == true) {
+    getOnBoat();
+  } else {
+    decline();
+  }
+}
+
+function getOnBoat(userinput) {
+  alert("Let us begin.");
+  alert("You are " + playerName + " a very experienced videographer and you're been given the opportunity to take part in an expedition across the pacific ocean by a group of shady sailors.");
+  alert("The purpose of the expedition is to explore the world undearneath the waves, your purpose is to document the sailors adventures through film and the trip is free.");
+  var acceptOrDecline = prompt('The Captain speaks firmly to you "Well make up your mind "' + playerGender[0] + '", we best be leavin today."\n(accept, decline)').toLowerCase();
+  if (acceptOrDecline === "accept"){
+    acceptGame();
+  } else if (acceptOrDecline === "decline"){
+    declineGame();
+  } else {
+    deadEnd();
+  }
+}
+  
+function deadEnd() {
+  alert("sorry, i'm confused.");
+}
+  
+function declineGame() {
+  alert("You kindly declind the offer and return home, only to be welcomed by the powerful regret towards the adventure you could have had.");
+  alert("You later become so obsessed with finding your own ocean adventure that you build a boat and sail into the Pacfic.");
+  alert("Within hours of setting sail, your homemade boat runs out of gas and you are now stranded in open water with no means of communication for help.");
+  alert("A storm begins to pick up and becomes so strong it tosses your boat upside down and you drown.");
+}
+
+function acceptGame(){
+  alert('"Well great, we will be needin your help on our boat called the Tristan "' + playerGender[0] + ' The Captain clamped his hand on your shoulder and guided you towards the ship.');
+  alert('You set sail within a few hours and watched as your home faded in the distance.\n"Hey "' + playerName + '", Pull out your camera and start filming somethin." The Captain said.');
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
