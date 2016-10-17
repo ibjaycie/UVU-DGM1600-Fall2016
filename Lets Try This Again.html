@@ -1,0 +1,241 @@
+<html>
+    <head>
+        <title>I Hate This</title>
+    </head>
+
+    <body>
+        <script>
+            //End Game Function
+            function deadEnd(){
+                alert("Sorry, i'm confused");
+            }
+            //variables
+            var inventoryBP = {
+                sandwich: 1,
+                clothes: 1,
+                goggles: 1,
+                swimsuit: 2,
+            }
+
+            var inventoryDB = {
+                sandwich: 5,
+                clothes: 4,
+                goggles: 1,
+                swimsuit: 2,
+            }
+            
+            //array
+
+            var inventoryPocket = ["Key","lint","Chewed gum in wrapper","Crumbled paper"];
+            
+
+ 
+
+            //Functions go here
+           function dive() { //connected to pocketing the key
+               alert("When you land in the water you are hit with a blast of freezing water.");
+           }
+           
+           function dontDive() { // connected to pocketing the key
+               alert("The captain run's after you and throws you in the water anyway.");
+           }
+           
+           
+            function returnKey() {
+                alert('You grab your camera and run after the captain. "Hey! Captain! You dropped this."');
+                alert('He took the key from your hand. "Well thank you ' + playerGender[0] + ', Maybe now I will show you what this opens oneday." He slid the key into his pocket then said, "Come, I want to show you something."');
+                alert()
+            }
+            
+            function pocketKey() {
+                alert("You hurry and pocket the key, grab your camera and run after the captain.");
+                alert('"Go put on some diving gear, we will be diving in an hour and you need to film it." The captain said. He showed you to where all the equipment was then left you there to change.');
+                alert("As you changed, you didn't want to risk losing the key in your pocket, so you hooked it to a chain you found the in the diving gear room, hung the key around your neck and tucked it under your gear.");
+                alert("An hour later, your standing on the edge of the boat looking out at sea where you can no longer see any mountains or any sign of land.");
+                alert('The captain comes up behind you. "It is time to dive ' + playerName + '"');
+                var divechoice = prompt("You start to get a little nervous noticing that the waves are not gentle and you have never been diving before. Do you dive or decide not to?\n(dive, don't dive)");
+                switch(divechoice) {
+                    case "dive":
+                        alert("You choose to dive and dive right in. psh you're no scared.");
+                        dive();
+                        break;
+                    case "don't dive":
+                        alert("You choose to not dive and run away from the captain screaming.");
+                        dontDive();
+                        break;
+                    default:
+                        alert("You stand there staring at the water lost in thought, can't make a decision.");
+                        pocketKey();
+                }
+            }
+            
+            
+            
+            
+            function joinSailors() {
+                alert("You throw your Bag Over your shoulder and run back down to the docks.");
+                alert("When you get down to the docs you are one minute ahead of the time you were allotted and you settle into your cabin.");
+                alert('You lay down on your bed that is two sizes too small but you are happy you are here. You here a loud knock at the door. You answer the door swiftly to find the Captain staring down at you.');
+                alert('"Get that camera of yours out ' + playerName + ' and start filming something. You have a job to do like all of us."');
+                alert("He turned quick on his heels and headed towards the upperdeck, but as he turned something small and gold flew out of his pocket. You quickly reach down to inspect the gold object and found that is was a golden key.");
+                var key = prompt("You quickly look at the key hole in your own door and notice that the key hole and the captains key are completley different. Do you pocket the key or returin it to the captain?\n(return, pocket)").toLowerCase();
+                //Array
+                
+                if(key === "return") {
+                    inventoryPocket.shift();
+                    returnKey();
+                } else {
+                    pocketKey();
+                }
+            }
+            
+
+           //INVINTORY FOR DUFFLE BAG ONLY
+            function checkInvDB() {
+                 alert(
+                     "Sandwich = "+inventoryDB.sandwich+" "+
+                     "Clothes = "+inventoryDB.clothes+" "+
+                     "Goggles = "+inventoryDB.goggles+" "+
+                     "Swimsuit = "+inventoryDB.swimsuit
+                 )   
+              } 
+            
+
+
+
+            //CHECKING INVINTORY FOR THE DUFFLE BAG
+             function invCheck() {
+                alert("Here are the items currently in your backpack.");
+                checkInvDB();
+                joinSailors();
+            }
+            
+            //DUFFLEBAG INPUTS
+            function duffleBag() {
+                alert("You grab a duffle bag from your closet and begin to stuff some items inside that might come in handy on your journey.");
+                var choiceDB = prompt("Do you want to take an extra pair of clothes? (Yes, No, or Check inside bag?) (If you are checking inside the bag, just type Check)").toLowerCase();
+                if(choiceDB == "yes") {
+                    inventoryDB.clothes = 5;
+                    console.log("Clothes = "+inventoryDB.clothes);
+                    invCheck();
+                } else if(choiceDB == "check") {
+                    checkInvDB();
+                    duffleBag();
+                } else {
+                    alert("You decide you don't need an extra pair of clothes and move on.");
+                    inventoryDB.clothes = 4;
+                    console.log("Clothes = "+inventoryDB.clothes);
+                    invCheck();
+                }
+            }
+
+           //INVENTORY FOR BACKPACK ONLY
+           function checkInvBP() {
+                alert(
+                    "Sandwich = "+inventoryBP.sandwich+" "+
+                    "Clothes = "+inventoryBP.clothes+" "+
+                    "Goggles = "+inventoryBP.goggles+" "+
+                    "SwimSuit = "+inventoryBP.swimsuit
+                )
+              }  
+           
+           
+           //CHECKING INVENTORY FOR THE BACKPACK
+           function invCheckBP() {
+               alert("here are the items currently in your backpack.");
+               checkInvBP();
+               joinSailors();
+         }
+
+
+           //BACKPACK INPUTS ONLY
+            function backPack() {
+                alert("You grab a backpack from your closet and begin to stuff some items inside that might come in handy on your journey.");
+                var choice = prompt("Do you want to take an extra pair of clothes? (Yes, No, or Check inside bag? (If you are checking inside the bag, just type Check))").toLowerCase();
+                if(choice == "yes") {
+                    inventoryBP.clothes = 2;
+                    console.log("Clothes = "+inventoryBP.clothes);
+                    invCheckBP();
+                } else if(choice == "check") {
+                    checkInvBP();
+                    backPack();
+                } else {
+                    alert("You decide you don't need extra clothes and move on.");
+                    inventoryBP.clothes = 1;
+                    console.log("Clothes = "+inventoryBP.clothes);
+                    invCheckBP();
+                } 
+            }
+            
+
+
+
+
+
+            function acceptGame() {
+                var packOfStuff = prompt('"Well great, we will be needin your help on the TRISTAN, ' + playerGender[0] + '" The captain clamped his hand on your shoulder, "Go pack your bags, we leave in an hour." You run home as fast as you can to pack, but what do you take?\n(Backpack or Duffle Bag)').toLowerCase();
+                if (packOfStuff === "backpack") {
+                    backPack();
+                } else if (packOfStuff === "duffle bag") {
+                    duffleBag();
+                } else
+                    alert("Not a valid item, try again.");
+                    acceptGamer();
+            }
+
+
+
+
+
+            function declineGame() {
+                alert("You kindly decline the offer and return home, only to be welcomed by powerful regret towards the adventure you could have had.");
+                alert("You later become so obsessed with finding your own ocean adventure that you build a boat and sail into the Pacific alone.");
+                alert("Within hours, your homemade boat runs out of gas and you are now stranded in open water with no means of communication for help.");
+                alert("A storm begins to form and tosses your boat upside down and you are now stuck underneath and you drown.")
+            }
+            
+            
+            
+            function getOnBoat() {
+                alert("Let us begin.");
+                alert("You are " + playerName + " a very experienced videographer and you've been given the opportunity to take part in an expedition across the pacfific ocean by a group of shady sailors.");
+                alert("The purpose of the expedition is to explore the world underneath the waves, YOUR purpose is to film the sailor's adventures and the entire trip is free.");
+                var acceptOrDecline = prompt('The captain speaks firm to you, "Well make up your mind ' + playerGender[0] + ', we best be leavin today."\n(accept, or decline)').toLowerCase();
+                if (acceptOrDecline === "accept"){
+                    acceptGame();
+                } else if (acceptOrDecline === "decline"){
+                    declineGame();
+                } else {
+                    deadEnd();
+                }
+            }
+           
+           
+           
+           
+            function gameStart() {
+                var begin = confirm("Alright " + playerName + ", are you prepared to begin your journey, even if you might not make it out alive?");
+                if (begin == true) {
+                    getOnBoat();
+                } else {
+                    decline();
+                }
+            }
+            
+            
+            
+            //initial character creation
+            var playerName = prompt("Name your character.");
+            var playerGender = prompt("Is " + playerName + " male or female?").toLowerCase();
+            if(playerGender === "male") {
+                playerGender = ["lad", "boy"];
+                gameStart(); //starting game 
+            } else if (playerGender === "female"){
+                playerGender = ["lass"];
+                gameStart(); //starting game
+            } else {
+                deadEnd();
+            }
+        </script>
+    </body>
+</html>
