@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by anonymous (http://jsbin.com/ruxayixiwu/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+
+           
+            //End Game Function
+            function deadEnd(){
+                alert("Sorry, i'm confused");
+            }
+            //variables
+            var inventoryBP = {
+                sandwich: 1,
+                clothes: 1,
+                goggles: 1,
+                swimsuit: 2,
+            }
+            var inventoryDB = {
+                sandwich: 5,
+                clothes: 4,
+                goggles: 1,
+                swimsuit: 2,
+            }
+            
+            //array
+            var inventoryPocket = ["Key","lint","Chewed gum in wrapper","Crumbled paper"];
+            
+ 
+            //Functions are here
+            function meFile() {
+                alert('On the captains desk you find a thick file that says "'+ playerName + ':Classified:"');
+                alert("You sift through the file and notice that the captain knows absolutley everything about you, down to how many times you blink per day. You close the file and run out of the room with it tucked under your arm.");
+                alert("When you burst outside, The Captain, and the entire crew are stadning in from of the door blocking your way.");
+                alert('"I see you found yer file " ' + playerGender + '". He grinned at you and the crew laughed. In moments you were seized by the crew and thrown to the ground. The captain loomed over you, "Goodbye ' + playerName + '"');
+                document.write("<span style=\"color:maroon;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(The Captain and his crew murdered you, but you never found out how he new everything about you. Too bad, you died. You'll never know.) (Game Over)<\/span>");
+            }
+            function treasureLocation() {
+                alert("You found the location of the map!");
+                alert('You leave the room immediatley after memorizing the location. You catch up to the captain who is almost ready to send off the divers. "Captain, I wish to dive this time if that is alright." He looked at you confused but let you go get your gear on to dive.');
+                alert("You dive with three other divers within minutes. You eventually reach the sea floor, your camera in hand. You quietly slip past the other divers as they explore the sea floor. They don't notice you leave.");
+                alert("You find the sunken ship where the treasure chest is supposed to be located. You go inside, and right in the middle of the hallway is the treasure chest.");
+                alert("You swim over to it amazed that you actually found it. But then you realize.\nYou don't have the key.");
+                alert("You were so excited to get the treasure before the captain but forgot to steal the key. Oh well. You decide to explore the ship.");
+                deadPeople();
+            }
+    
+            //connected with returing the key
+            function browse() {
+                alert("You continuing browsing but eventually get bored and decide to go out and join the divers. When you turn around to leave you accidentally bump the wall of artifacts and they all come crashing down.");
+                alert("The captain comes in yelling draws his sword and then . . .");
+                document.write("<span style=\"color:maroon;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(. . . it all goes black. The Captain murders you for breaking his stuff.) (Game Over)<\/span>");
+
+            }
+            //connected with returing the key
+            function steal() {
+                alert('You decide you love the artifacts so much you must have one of your own. You decide to take one of the ships in a bottle. You pick up the one that is called "The Dark Ruby" and exit the captains room');
+                alert("You need to get to your room quielty so you can hide the ship in your bag. As you are walking to your room you notice that the divers are getting ready to dive. Once they do, the ship rocks a little bit and catches you off guard.");
+                alert("The bottle slips from your hands as you try to steady youself and falls to the ground, shattering. All of the sudden the ship begins to expand to it's original size, and crushes the crew, you and the ship underneath it, killing everyone in the water and on the ship, Including yourself.");
+                document.write("<span style=\"color:maroon;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(You stole from the captain and ended up killing everyone on the ship, including yourself. Nice Going.) (Game Over)<\/span>");
+            }
+            
+            //second array snooping
+            function snoop() {
+                    var snooping = new Array();
+                    snooping[0]="You found a file on his desk that has all of you information in it";
+                    snooping[1]="You found the location of the treasure chest";
+                    var randomSnooping = snooping[Math.floor(Math.random() * snooping.length)];
+
+                    if(randomSnooping == "You found a file on his desk that has all of you information in it") {
+                        meFile();
+                    } else if(randomSnooping == "You found the location of the treasure chest"){
+                        treasureLocation();
+                    }
+            }
+              
+          
+          
+           //scenario of you return the key
+            function returnKey() {
+                alert('You grab your camera and run after the captain. "Hey! Captain! You dropped this."');
+                alert('He took the key from your hand. "Well thank you ' + playerGender[0] + ', Maybe I will show you what this opens one day." He slid the key into his pocket then said, "Come, I want to show you something."');
+                alert('He guided you to his quarters, when inside he walked you over to a magnificent wooden door on the other side of the large room. He opened it and inside were what looked like billions of beautiful artifacts. Keys, ships in bottles, swords, you name it!');
+                alert('"I have been collecting things like this for decades, and this is what I am in search of here. This key you so kindly gave back to me, opens a chest that will grant you all of your wildest desires. I want it for my collection as you can see here."');
+                alert('He let you browse through his collection.\nA shout came from outside. "Captain! We are getting ready to dive!" the captain turned to you, "'+ playerName + ', You can continue to browse if you would like, we will get you on the next dive." He turned and left to help the divers.');
+                var captainRoom = prompt("You were left alone with all of the captain's precious artifacts. What do you do? Continue browsing, steal something, or snoop through the captains personal belongings?\n(browse, steal, snoop)").toLowerCase();
+                switch(captainRoom) {
+                    case "browse":
+                        browse();
+                        break;
+                    case "steal":
+                        steal();
+                        break;
+                    case "snoop":
+                        snoop();
+                        break;
+                }
+
+            }
+       //array scenario
+            function uniqueFish() {
+                alert("You explore the ship for a while then find the unique fish you were following with many other unique fish. You follow them as they swim in and out of windows, doors, floorboards. You are really happy with the footage you're getting.");
+                alert("You decid you have been gone for too long and head back to the divers.");
+                divers();
+            }
+            
+            //array scenario
+             function treasure() {
+                 alert("You found a treasure chest but do you have the key?");
+                 alert("You pull out the key that you have hanging around your neck, it turns out the key fits inside the treasure chest! but what is inside?");
+                 alert("You find a billion jewls and rubies, and even some Salt Water Taffy! What are the odds? As it turns out, this treasure chest happens to be a magical treasure chest. It inserts anything you desire inside the chest. You wanted to bring it to the surface so it gave you the strength to carry it.");
+                 alert("You bring it up to the surface not caring about the other divers, psh you found a magic treasure chest on a sunken ship, who needs them?\nWhen you break the surface you fly onto the ship with the treasure chest in your hands. The captain tries to take it from you but the chest grants you what you desire and you desired the entire crew to abandon ship.");
+                 alert("They all jump off the ship and you leave them stranded while you go live your life with your magical chest.");
+                 document.write("<span style=\"color:green;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(You found the magical treasure chest and live happily ever after surrounded by anything you want in life. Congrats.) (YOU WIN)<\/span>");
+                 
+             }
+            //array scenario
+            function shipDeath() {
+                alert("You leave the camera and make it to the window. You push off the window and out of the grasp of the cursed crew. You begin swimming your way to the surface surrounded by black water. You can't see the light your camera had anymore. kicking at the wwater with all your might the darkness around you begins to slowly dissolve. You can see the surface now, only meters away!");
+                alert("You reach your hand up towards the surface to grab at the blue sky, but it's grabbed by the dead captains hand instead. The captain from the sunken ship appeard in front of you and the crew behind. they dragged you back down to the ship where you were killed.");
+                 document.write("<span style=\"color:maroon;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(Your body was never found. Neither was your camera which had evidence of the cursed crew and their captain because you left it on the ship.) (Game Over)<\/span>");
+            }
+            //array scenario
+            function partOfShipDeath() {
+                alert("You keep the camera in hopes you can make it to the surface and show your own crew of this cursed crew.");
+                alert("But you never make it to the window.");
+                document.write("<span style=\"color:maroon;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(Your body was never found. Neither was your camera which had evidence of the cursed crew and their captain but you held onto it, together lost on the ship forever.) (Game Over)<\/span>");
+            }
+            //array scenario
+            function shipDeathTwo() {
+                alert("You make it to the window with barely enough time to throw your camera out and push off the window and out of the grasp of the cursed crew.");
+                alert("You begin swimming your way to the surface surrounded by black water. You can't see the light your camera had anymore. Kicking at the water with all your might the darkness around you begins to slowly dissolve. You can see the surgace now, only meters away!");
+                alert("You reach your hand up towards the surface to grab at the blue sky, but it's grabbed by the dead Captains hand instead. The captain from the sunken ship appeared in front of the you and the crew behind. They dragged you back down to the ship where you were killed.");
+                document.write("<span style=\"color:maroon;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(Your body was never found. Well, that is a lie. The crew of sailors you joined earlier that day eventually found your camera at the bottom of the ocean, but no sunken ship. The footage on the camera was salvaged and showed clearly what had happened to you, but no one ever found your body, well lived to tell the tail that is.) (Game Over)<\/span>");
+                
+            }
+            //array scenario
+            function deadPeople() {
+                alert("The inside was magnificent but then you notice, the sunken ship was filled with dead people in boats.");
+                alert("You scream underwater, thrown offguard by what you have found. The boats which were small boats were floating around what seemed to be the great hall in the ship each carying one body. Because you're curious, you begin to swim closer to the bodies in the boats.'");
+                alert("You held your camera close to your chest but continued to film as you got closer. You looked over the edge of one of the boats and it looked to be the Captain of the ship. He looked peaceful.");
+                alert('Then all of a sudden the captain sat up quickly in his boat and grabbed you. You tried to break from his crasp but he was so strong. He brought his lips to your ear and whispered through the water, "' + playerName + ', Part of the ship, part of the crew."');
+                var partOfShip = prompt('Every body in the room suddenly woke up in their boats and chanted "Part of the Ship, Part of the Crew." The captain let go of you and you swam as fast as you could to a broken window where you could get out. but your camera was slowing you down. Do you leave the camera, take it with you or throw it out of the ship? (Leave, take, throw) ');
+                switch(partOfShip) {
+                    case "leave":
+                        shipDeath();
+                        break;
+                    case "take":
+                        partOfShipDeath();
+                        break;
+                    case "throw":
+                        shipDeathTwo();
+                }
+            }
+             
+            
+            
+            //ARRAY
+            function ship() {
+                var insideShip = new Array();
+                insideShip[0]="You explore the ship for a while then find the unique fish you were following with many other unique fish.";
+                insideShip[1]="There wasn't much besides more fish, so you decide to find the divers.";
+                insideShip[2]="The inside was magnificent but then you notice, the sunken ship was filled with dead people in boats.";
+                insideShip[3]="You find a treasure chest!";
+                var randomShip = insideShip[Math.floor(Math.random()*insideShip.length)];
+                
+               switch(randomShip) {
+                   case "The inside was magnificent but then you notice, the sunken ship was filled with dead people in boats.":
+                        deadPeople();
+                        break;
+                   case "You find a treasure chest!":
+                        treasure();
+                        break;
+                   case "You explore the ship for a while then find the unique fish you were following with many other unique fish":
+                        uniqueFish();
+                        break;
+                   case "There wasn't much besides more fish, so you decide to find the divers.":
+                        alert("There really wasn't anything inside the ship except more fish so you join the divers anyway.");
+                        findDivers();
+                        break;
+               }
+            }
+            //getting out of the arry and finding the divers
+            function findDivers() {
+                alert("You eventually find the divers but they didn't even notice you had left.");
+                divers();
+            }
+            
+            //following the fish leading to array
+            function fish() {
+                var enterShip = prompt("Within moments you nearly run into a metal wall. You turn your camera towards what you hit and find that it is a huge sunken ship.You are amazed that you accidentally found a sunken ship and are baffled that the other divers didn't find it either. what do you do? Go inside or find divers to show them as well? (go inside, find divers)").toLowerCase();
+                switch(enterShip) {
+                    case "go inside":
+                        ship();
+                        break;
+                    case "find divers":
+                        findDivers();
+                        break;
+                }
+            }
+            //part of divers sequence
+            function swimUp() {
+                alert('You begin to swim up to the surface. When you break through the water you somehow end up right next to the boat you came on. The captain spotted you and leaned over the side, "Where are the rest of the crew? Or is it just you?"');
+                alert('You pulled off your goggles and mask and said, "No, just me. They disappeared I have no idea what happened to them. I can show you on my camera though! I caught it on film!" You handed the captain the camera, he took one look at it and handed it to another crew member who took it to the captains quarters.');
+                alert('You were still bobbing up and down in the water when the captain turned back to you. "So it is just you, ' + playerName + '?"\nyou looked up at him confused. "Yes, just me sir."\nHe leaned further over the side of the boat and said "Swim closer ' + playerGender + 'Let me help you up."');
+                alert("You swam closer and he grabbed your hand, only to shove you back down into the water without your breathing mask. He held your head under water until you stopped kicking.");
+                document.write("<span style=\"color:maroon;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(The Captain drown you.) (Game Over)<\/span>");
+            }
+
+            //part of divers sequence
+            function dropLight() {
+                alert("You drop the light and watch it sink. It only took seconds for the light to dissappear. what a waste. Now you can't see.");
+                alert("You begin to swim back to the surface when you hear a noise in your headset, and not just any noise, but the sound of the three other divers screaming. You change your direction instantly and start diving as fast as you can down to the bottom of the abyss.");
+                alert("All of a sudden, the screaming stopped and your camera light floated past and so did the bodies of the other divers. You scream at the sight of the crew members and try to swim away, but something grabs you from behind and. . . ");
+                document.write("<span style=\"color:maroon;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(. . It all went black. You were killed by an unknown beast. Your body and the other divers bodies where never found.) (Game Over)<\/span>");
+            }
+            //original divers function
+            function divers() {
+                alert("The divers begin to swim really fast because they think they might have found something.");
+                alert('"Okay ' + playerGender + ', Stay close, we are coming up on something."');
+                alert("You follow the divers every movement to get the best shots possible. You become distracted by your viewport in your camera and don't watch your surroundings. You watch in your camera as one of the divers swims ahead and can no longer be seen by you or any of the divers.");
+                alert('You all hear a strange noise in your headsets. "'+ playerName + ', did you here that?" You nod your head towards one of the divers. "Joe? where did you go? are you alright joe?" one by one the other two divers begin calling out for Joe who dissappeared in the water.');
+                alert("You swim faster to keep up with the experienced divers but they swim so fast they dissappear into the darkenss as well. You scream out for them.\nNo answer.");
+                alert("You suddenly feel the ocean floor dissappear out from under you. You shine your camera light below you and you're now floating above a massive abyss dropoff. you turn around to head back the way you came, forgetting about the other divers but the ocean floor that was once there was nowhere to be found.");
+                var lightDrop = prompt("You have no idea where the other divers went and you can't hear them on the headset anymore, but you do have a light on your camera, you can take it off, drop it and see how far down the abyss goes or save yourself and swim to the surface. (Drop light, swim up)").toLowerCase();
+                switch(lightDrop) {
+                    case "drop light":
+                        dropLight();
+                        break;
+                    case "swim up":
+                        swimUp();
+                        break;
+                }
+            }
+            //choosing whether or not to dive
+           function dive() { //connected to pocketing the key
+               alert("When you land in the water you are hit with a blast of freezing water.");
+               alert("You are occumpanied by three other divers. You pull out your camera, turn it on, and the four of you begin your descent.");
+               alert("You swim downwards for what seems like hours and the light around you get's darker and darker. Interesting fish swim past you and inspect your camera. You finally reach the bottom of the ocean where the other three divers begin to scan the floor for metal.");
+               var weirdFish = prompt("You're looking through the display in your camera as you follow closely behind the divers when a strange fish swims past your screen. You had never seen anything like it. The fish swam into the darkness and you weren't sure if you could find it. what do you do? Go after the fish or stay with the divers? (fish, or divers)").toLowerCase();
+               switch(weirdFish) {
+                   case "fish":
+                        alert("You go after the fish");
+                        fish();
+                        break;
+                    case "divers":
+                        alert("You stay with the divers");
+                        divers();
+                        break;
+                    default:
+                        alert("I don't understand " + weirdFish +" .");
+                        dive();
+               }
+           } 
+           //if you don't dive
+           function dontDive() { // connected to pocketing the key
+               alert("The captain run's after you and throws you in the water anyway.");
+               dive();
+           }
+           
+
+
+
+            //scenario of you pocket the key
+            function pocketKey() {
+                alert("You hurry and pocket the key, grab your camera and run after the captain.");
+                alert('"Go put on some diving gear, we will be diving in an hour and you need to film it." The captain said. He showed you to where all the equipment was then left you there to change.');
+                alert("As you changed, you didn't want to risk losing the key in your pocket, so you hooked it to a chain you found in the diving gear room, hung the key around your neck and tucked it under your gear.");
+                alert("An hour later, you are standing on the edge of the boat looking out at sea where you can no longer see any mountains or any sign of land.");
+                alert('The captain comes up behind you. "It is time to dive ' + playerName + '"');
+                var divechoice = prompt("You start to get a little nervous noticing that the waves are not gentle and you have never been diving before. Do you dive or decide not to?\n(dive, don't dive)").toLowerCase();
+                switch(divechoice) {
+                    case "dive":
+                        alert("You choose to dive and dive right in. psh you're not scared.");
+                        dive();
+                        break;
+                    case "don't dive":
+                        alert("You choose not to dive and run away from the captain screaming.");
+                        dontDive();
+                        break;
+                    default:
+                        alert("You stand there staring at the water lost in thought, can't make a decision. Then a crew member comes up behind you and throws you in the water himself.");
+                        dive();
+                }
+            }
+            
+            
+            
+            
+            function joinSailors() {
+                alert("You throw your Bag Over your shoulder and run back down to the docks.");
+                alert("When you get down to the docs you are one minute ahead of the time you were allotted and you settle into your cabin.");
+                alert('You lay down on your bed that is two sizes too small but you are happy you are here. You here a loud knock at the door. You answer the door swiftly to find the Captain staring down at you.');
+                alert('"Get that camera of yours out ' + playerName + ' and start filming something. You have a job to do like all of us."');
+                alert("He turned quick on his heels and headed towards the upperdeck, but as he turned something small and gold flew out of his pocket. You quickly reach down to inspect the gold object and found that is was a golden key.");
+                var key = prompt("You quickly look at the key hole in your own door and notice that the key hole and the captains key are completley different. Do you pocket the key or returin it to the captain?\n(return, pocket)").toLowerCase();
+                //Array
+                
+                if(key === "return") {
+                    inventoryPocket.shift();
+                    returnKey();
+                } else {
+                    pocketKey();
+                }
+            }
+            
+           //INVINTORY FOR DUFFLE BAG ONLY
+            function checkInvDB() {
+                 alert(
+                     "Sandwich = "+inventoryDB.sandwich+" "+
+                     "Clothes = "+inventoryDB.clothes+" "+
+                     "Goggles = "+inventoryDB.goggles+" "+
+                     "Swimsuit = "+inventoryDB.swimsuit
+                 )   
+              } 
+            
+            //CHECKING INVINTORY FOR THE DUFFLE BAG
+             function invCheck() {
+                alert("Here are the items currently in your backpack.");
+                checkInvDB();
+                joinSailors();
+            }
+            
+            //DUFFLEBAG INPUTS
+            function duffleBag() {
+                alert("You grab a duffle bag from your closet and begin to stuff some items inside that might come in handy on your journey.");
+                var choiceDB = prompt("Do you want to take an extra pair of clothes? (Yes, No, or Check inside bag?) (If you are checking inside the bag, just type Check)").toLowerCase();
+                if(choiceDB == "yes") {
+                    inventoryDB.clothes = 5;
+                    console.log("Clothes = "+inventoryDB.clothes);
+                    invCheck();
+                } else if(choiceDB == "check") {
+                    checkInvDB();
+                    duffleBag();
+                } else {
+                    alert("You decide you don't need an extra pair of clothes and move on.");
+                    inventoryDB.clothes = 4;
+                    console.log("Clothes = "+inventoryDB.clothes);
+                    invCheck();
+                }
+            }
+           //INVENTORY FOR BACKPACK ONLY
+           function checkInvBP() {
+                alert(
+                    "Sandwich = "+inventoryBP.sandwich+" "+
+                    "Clothes = "+inventoryBP.clothes+" "+
+                    "Goggles = "+inventoryBP.goggles+" "+
+                    "SwimSuit = "+inventoryBP.swimsuit
+                )
+              }  
+           
+           
+           //CHECKING INVENTORY FOR THE BACKPACK
+           function invCheckBP() {
+               alert("here are the items currently in your backpack.");
+               checkInvBP();
+               joinSailors();
+         }
+           //BACKPACK INPUTS ONLY
+            function backPack() {
+                alert("You grab a backpack from your closet and begin to stuff some items inside that might come in handy on your journey.");
+                var choice = prompt("Do you want to take an extra pair of clothes? (Yes, No, or Check inside bag? (If you are checking inside the bag, just type Check))").toLowerCase();
+                if(choice == "yes") {
+                    inventoryBP.clothes = 2;
+                    console.log("Clothes = "+inventoryBP.clothes);
+                    invCheckBP();
+                } else if(choice == "check") {
+                    checkInvBP();
+                    backPack();
+                } else {
+                    alert("You decide you don't need extra clothes and move on.");
+                    inventoryBP.clothes = 1;
+                    console.log("Clothes = "+inventoryBP.clothes);
+                    invCheckBP();
+                } 
+            }
+            
+            function acceptGame() {
+                var packOfStuff = prompt('"Well great, we will be needin your help on the TRISTAN, ' + playerGender[0] + '" The captain clamped his hand on your shoulder, "Go pack your bags, we leave in an hour." You run home as fast as you can to pack, but what do you take?\n(Backpack or Duffle Bag)').toLowerCase();
+                if (packOfStuff === "backpack") {
+                    backPack();
+                } else if (packOfStuff === "duffle bag") {
+                    duffleBag();
+                } else {
+                    alert("Not a valid item, try again.");
+                    acceptGame();
+                }     
+            }
+            function declineGame() {
+                alert("You kindly decline the offer and return home, only to be welcomed by powerful regret towards the adventure you could have had.");
+                alert("You later become so obsessed with finding your own ocean adventure that you build a boat and sail into the Pacific alone.");
+                alert("Within hours, your homemade boat runs out of gas and you are now stranded in open water with no means of communication for help.");
+                alert("A storm begins to form and tosses your boat upside down and you are now stuck underneath and you drown.");
+                document.write("<span style=\"color:maroon;font-size: 5em; font-family:arial, helvetica, sans-serif;\">(You decline the adventure but eventually drown at sea. Nice.) (Game Over)<\/span>");
+            }
+            
+            
+            
+            function getOnBoat() {
+                alert("Let us begin.");
+                alert("You are " + playerName + " a very experienced videographer and you've been given the opportunity to take part in an expedition across the pacfific ocean by a group of shady sailors.");
+                alert("The purpose of the expedition is to explore the world underneath the waves, YOUR purpose is to film the sailor's adventures and the entire trip is free.");
+                var acceptOrDecline = prompt('The captain speaks firm to you, "Well make up your mind ' + playerGender[0] + ', we best be leavin today."\n(accept, or decline)').toLowerCase();
+                if (acceptOrDecline === "accept"){
+                    acceptGame();
+                } else if (acceptOrDecline === "decline"){
+                    declineGame();
+                } else {
+                    alert("Sorry, I'm confused.");
+                    getOnBoat();
+                }
+            }
+           
+           
+           
+           
+            function gameStart() {
+                var begin = confirm("Alright " + playerName + ", are you prepared to begin your journey, even if you might not make it out alive?");
+                if (begin == true) {
+                    getOnBoat();
+                } else {
+                    declineGame();
+                }
+            }
+            
+            
+            
+            //initial character creation
+            var playerName = prompt("Name your character.");
+            var playerGender = prompt("Is " + playerName + " male or female?").toLowerCase();
+            if(playerGender === "male") {
+                playerGender = ["lad", "boy"];
+                gameStart(); //starting game 
+            } else if (playerGender === "female"){
+                playerGender = ["lass"];
+                gameStart(); //starting game
+            } else {
+                deadEnd();
+            }
+            
+     
+</script>
+</body>
+</html>
